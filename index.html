@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dataBET's </title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/e2b5fa572c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="main__tittle bg-dark"> 
+                <h2>MINHAS BETS</h2>
+    </div>
+    <div class="main__menu">
+      <ul>
+          <li><a href="./betEstatistic.html">Conferir Estatistica</a></li>
+          <li><a href="#">Sobre</a></li>
+      </ul>
+   </div>
+    <div class="container">
+       <main>
+           <form class="bg-dark"  id="form"> 
+                <div class="mb-3">
+                  <label for="bet-valor" class="form-label">Valor da BET</label>
+                  <input type="number" class="form-control" id="bet-valor" placeholder="Apenas número" required>
+                </div>
+                <div class="mb-3">
+                    <label for="bet-odd" class="form-label">ODD:</label>
+                    <input type="number" class="form-control" id="bet-odd" required>
+                </div>
+                  <div class="mb-3">
+                    <label for="valorApostado" class="form-label">Esporte</label>
+                    <select id="bet-modalidade" onchange="changeselect()">
+                        <option value="">Selectione o Esporte </option>
+                        <option value="futebol">Futebol</option>
+                        <option value="basquete">Basquete</option>
+                    </select>
+                  </div>
+                  <div class="mb-3 hide" id="basqueteOptions">
+                    <label for="basqueteOption1" class="form-label">Jogador - Pontos</label>
+                    <input type="text" class="form-control" id="basqueteOption1">
+                    <label for="basqueteOption2" class="form-label">Jogador - Assistencias</label>
+                    <input type="text" class="form-control" id="basqueteOption2">
+                    <label for="basqueteOption3" class="form-label">Jogador - Rebotes</label>
+                    <input type="text" class="form-control" id="basqueteOption3">
+                    <label for="basqueteOption4" class="form-label">Jogador - Triplos Conseguidos</label>
+                    <input type="text" class="form-control" id="basqueteOption4">
+                  </div>
+                  <div class="mb-3 hide " id="futebolOptions">
+                    <label for="futebolOption1" class="form-label">Jogador - Finalizações</label>
+                    <input type="text" class="form-control" id="futebolOption1">
+                    <label for="futebolOption2" class="form-label">Jogador - Finalizações ao Gol</label>
+                    <input type="text" class="form-control" id="futebolOption2">
+                    <label for="futebolOption3" class="form-label">Gols</label>
+                    <input type="text" class="form-control" id="futebolOption3">
+                    <label for="futebolOption4" class="form-label">Escateio</label>
+                    <input type="text" class="form-control" id="futebolOption4">
+                    <label for="futebolOption5" class="form-label">Cartões</label>
+                    <input type="text" class="form-control" id="futebolOption5">
+                  </div>
+                  <div class="mb-3">
+                    <label for="timeMandante" class="form-label">Time Mandante</label>
+                    <input type="text" class="form-control" id="timeMandante" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="timeVisitante" class="form-label">Time Visitante</label>
+                    <input type="text" class="form-control" id="timeVisitante" required>
+                  </div>
+                  <div>
+                    <label for="date" class="form-label">Data</label>
+                    <input type="date" class="form-control" id="date" required>
+                  </div>
+                  
+                <button type="submit" class="btn btn-primary" id="btn-form">Adicionar Aposta</button>
+            </form>
+            <!--Painel de edicao --> 
+            <form class="bg-dark hide" id="editForm"> 
+              <h3>Painel de edição</h3>
+              <p>Editando aposta: <span id='bet-Indice'></span></p>
+              <div class="mb-3">
+                <label for="bet-valor" class="form-label">Valor da BET</label>
+                <input type="number" class="form-control" id="editBet-valor" placeholder="Apenas número" required>
+              </div>
+              <div class="mb-3">
+                  <label for="bet-odd" class="form-label">ODD:</label>
+                  <input type="number" class="form-control" id="editBet-odd" required>
+                </div>
+                <div class="mb-3">
+                  <label for="valorApostado" class="form-label">Esporte</label>
+                  <select id="editBetModalidade">
+                      <option value="futebol">Futebol</option>
+                      <option value="basquete">Basquete</option>
+                  </select>
+                </div>
+                <div class="mb-3 hide" id="editBasqueteOptions">
+                  <label for="editBasqueteOption1" class="form-label">Jogador - Pontos</label>
+                  <input type="text" class="form-control" id="editBasqueteOption1">
+                  <label for="editBasqueteOption2" class="form-label">Jogador - Assistencias</label>
+                  <input type="text" class="form-control" id="editBasqueteOption2">
+                  <label for="editBasqueteOption3" class="form-label">Jogador - Rebotes</label>
+                  <input type="text" class="form-control" id="editBasqueteOption3">
+                  <label for="editBasqueteOption4" class="form-label">Jogador - Triplos Conseguidos</label>
+                  <input type="text" class="form-control" id="editBasqueteOption4">
+                </div>
+                <div class="mb-3 hide " id="editFutebolOptions">
+                  <label for="editFutebolOption1" class="form-label">Jogador - Finalizações</label>
+                  <input type="text" class="form-control" id="editFutebolOption1">
+                  <label for="editFutebolOption2" class="form-label">Jogador - Finalizações ao Gol</label>
+                  <input type="text" class="form-control" id="editFutebolOption2">
+                  <label for="editFutebolOption3" class="form-label">Gols</label>
+                  <input type="text" class="form-control" id="editFutebolOption3">
+                  <label for="editFutebolOption4" class="form-label">Escateio</label>
+                  <input type="text" class="form-control" id="editFutebolOption4">
+                  <label for="editFutebolOption5" class="form-label">Cartões</label>
+                  <input type="text" class="form-control" id="editFutebolOption5">
+                </div>
+                <div class="mb-3">
+                  <label for="timeMandante" class="form-label">Time Mandante</label>
+                  <input type="text" class="form-control" id="editBetTimeMandante" required>
+                </div>
+                <div class="mb-3">
+                  <label for="timeVisitante" class="form-label">Time Visitante</label>
+                  <input type="text" class="form-control" id="editBetTimeVisitante" required>
+                </div>
+                <div>
+                  <label for="date" class="form-label">Data</label>
+                  <input type="date" class="form-control" id="editBetDate" required>
+                </div>
+                
+              <button type="submit" class="btn btn-primary" id="editBtn-form">Editar Aposta</button>
+              <button type="submit" class="btn btn-primary" id="cancelBtn-form">Cancelar</button>
+          </form>
+            <table class="table table-hover">
+               <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Valor</th>
+                        <th>ODD</th>
+                        <th>Retorno</th>
+                        <th>Lucro</th>
+                        <th>Tipo de Aposta</th>
+                        <th>Esporte</th>
+                        <th>Confronto</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                        <th>Editar/Remover</th>
+                    </tr>
+               </thead>
+               <tbody id="tbody">
+               </tbody>
+            </table>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/selectOptions.js"></script>
+</body>
+</html>

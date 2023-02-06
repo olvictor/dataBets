@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+
+body{
+background-color: #212529;
+display: flex;
+height: 100vh;
+justify-content: center;
+align-items: center;
+}
+
+.painel__estatistic{
+background-color:#0d6efd;
+width: 1000px;
+height: 500px;
+display: flex;
+padding: 50px;
+gap: 50px;
+border-radius: 30px;
+}
+
+.user__avatar{
+width: 20%;
+
+}
+
+.user__avatar a{
+font-size: 1.8rem;
+text-decoration:none ;
+color:white ;
+font-weight: bolder ;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.user__statisticas{
+width: 80%;
+display: flex;
+flex-direction: column;
+}
+
+.user__statisticas h3{
+display: flex;
+font-size: 2rem;
+font-family: 'Rowdies', cursive;
+color: white;
+font-weight: bolder;
+gap: 10px;
+}
+
+.user__statisticas hr{
+background-color: white;
+height: 3px;
+margin: 10px 0;
+opacity: 0.5;
+}
+
+#totalRed{
+color: red;
+
+}
+
+#totalGreen{
+color: rgb(12, 245, 12);
+
+}
+
+#totalGanhou{
+color: rgb(12, 245, 12);
+
+}
+
+#totalPerdeu{
+color: red;
+
+}
+
+#totalLucro{
+color: rgb(12, 245, 12);
+
+}
